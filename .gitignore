@@ -5,6 +5,9 @@
 /.pnp
 .pnp.js
 
+code_context.txt
+get_code_context.sh
+
 # testing
 /coverage
 
