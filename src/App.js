@@ -7,7 +7,8 @@ import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import Header from './components/header/header';
 import Footer from './components/footer/footer';
 import Home from './pages/Home/index';
-import About from './pages/About/index'
+import About from './pages/About/index';
+import Blog from './pages/Blog/index';
 import Listing from './pages/Listing';
 import NotFound from './pages/NotFound';
 import DetailsPage from './pages/Details';
@@ -160,6 +161,7 @@ function App() {
           <Route exact={true} path="/signIn" element={<SignIn />} />
           <Route exact={true} path="/signUp" element={<SignUp />} />
           <Route exact={true} path="/about" element={<About />} />
+          <Route exact={true} path="/blog" element={<Blog />} />
           <Route exact={true} path="*" element={<NotFound />} />
         </Routes>
        <Footer/>
