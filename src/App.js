@@ -7,7 +7,7 @@ import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import Header from './components/header/header';
 import Footer from './components/footer/footer';
 import Home from './pages/Home/index';
-import About from './pages/About/index';
+import About from './pages/About/index'
 import Listing from './pages/Listing';
 import NotFound from './pages/NotFound';
 import DetailsPage from './pages/Details';
