@@ -206,7 +206,7 @@ const Footer = () => {
 
                         <div className='row lastStrip'>
                             <div className='col-md-3 part_1'>
-                                <p>© 2024 - Freshvegs Inc. All rights reserved.
+                                <p>© 2024 - Freshvegs Inc.
                                     All rights reserved</p>
                             </div>
 
