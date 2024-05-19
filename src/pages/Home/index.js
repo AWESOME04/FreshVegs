@@ -181,16 +181,15 @@ const Home = (props) => {
 
             <section className='homeProducts homeProductsRow2 pt-0'>
                 <div className='container-fluid'>
-                    <div className='d-flex align-items-center'>
-                        <h2 className='hd mb-0 mt-0'>Daily Best Sells</h2>
+                    {/*<div className='d-flex align-items-center'>*/}
+                    {/*    <h2 className='hd mb-0 mt-0'>Daily Best Sells</h2>*/}
 
-                    </div>
-
+                    {/*</div>*/}
                     <br className='res-hide' /><br  className='res-hide'/>
                     <div className='row'>
-                        <div className='col-md-3 pr-5 res-hide'>
-                            <img src={Banner4} className='w-100' />
-                        </div>
+                        {/*<div className='col-md-3 pr-5 res-hide'>*/}
+                        {/*    <img src={Banner4} className='w-100' />*/}
+                        {/*</div>*/}
 
                         <div className='col-md-9'>
                             <Slider {...settings} className='prodSlider'>

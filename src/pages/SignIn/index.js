@@ -170,7 +170,7 @@ const SignIn = () => {
                             </div>
 
 
-                            <p className='text-center'>Not have an account
+                            <p className='text-center'>Don't have an account?
                                 <b> <Link to="/signup">Sign Up</Link>
                                 </b>
                             </p>

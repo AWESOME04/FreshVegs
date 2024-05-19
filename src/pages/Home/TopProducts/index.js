@@ -23,7 +23,7 @@ const TopProducts = (props) => {
 
 
                     <div className='info px-3'>
-                        <Link to=""><h4>Nestle Original Coffee-Mate Coffee Creamer</h4></Link>
+                        <Link to=""><h4>Fresh locally produced carrots on sale!</h4></Link>
                         <Rating name="half-rating-read" defaultValue={3.5} precision={0.5} readOnly />
                         <div className='d-flex align-items-center'>
                             <span className='price text-g font-weight-bold'>$28.85</span> <span className='oldPrice'>$32.8</span>
@@ -42,7 +42,7 @@ const TopProducts = (props) => {
 
 
                     <div className='info px-3'>
-                        <Link to=""><h4>Nestle Original Coffee-Mate Coffee Creamer</h4></Link>
+                        <Link to=""><h4>Fresh locally produced carrots on sale!</h4></Link>
                         <Rating name="half-rating-read" defaultValue={3.5} precision={0.5} readOnly />
                         <div className='d-flex align-items-center'>
                             <span className='price text-g font-weight-bold'>$28.85</span> <span className='oldPrice'>$32.8</span>
@@ -61,7 +61,7 @@ const TopProducts = (props) => {
 
 
                     <div className='info px-3'>
-                        <Link to=""><h4>Nestle Original Coffee-Mate Coffee Creamer</h4></Link>
+                        <Link to=""><h4>Fresh locally produced carrots on sale!</h4></Link>
                         <Rating name="half-rating-read" defaultValue={3.5} precision={0.5} readOnly />
                         <div className='d-flex align-items-center'>
                             <span className='price text-g font-weight-bold'>$28.85</span> <span className='oldPrice'>$32.8</span>

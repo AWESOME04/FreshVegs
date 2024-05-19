@@ -70,9 +70,9 @@ const SignUp = () => {
     return (
         <>
             <section className='signIn mb-5'>
-                <div class="breadcrumbWrapper res-hide">
-                    <div class="container-fluid">
-                        <ul class="breadcrumb breadcrumb2 mb-0">
+                <div className="breadcrumbWrapper res-hide">
+                    <div className="container-fluid">
+                        <ul className="breadcrumb breadcrumb2 mb-0">
                             <li><Link to="/">Home</Link>  </li>
                             <li>SignUp</li>
                         </ul>

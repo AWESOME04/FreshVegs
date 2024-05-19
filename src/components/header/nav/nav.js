@@ -1,11 +1,10 @@
-import React, { useEffect, useContext } from 'react';
+import React, { useEffect, useContext, useState } from 'react';
 import './nav.css';
 import { Link } from 'react-router-dom';
 import Button from '@mui/material/Button';
 import KeyboardArrowDownIcon from '@mui/icons-material/KeyboardArrowDown';
 import GridViewIcon from '@mui/icons-material/GridView';
 import HeadphonesOutlinedIcon from '@mui/icons-material/HeadphonesOutlined';
-import { useState } from 'react';
 import { MyContext } from '../../../App';
 
 const Nav = (props) => {
@@ -19,7 +18,7 @@ const Nav = (props) => {
 
     useEffect(() => {
         setNavData(props.data);
-    }, []);
+    }, [props.data]);
 
     useEffect(() => {
         setIsOpenNav(props.openNav);
@@ -117,32 +116,36 @@ const Nav = (props) => {
                                             <div className='row'>
                                                 {props.data.length !== 0 &&
                                                     props.data.map((item, index) => {
-                                                        return (
-                                                            <div className='col' key={index}>
-                                                                <a href={`/cat/${item.cat_name.toLowerCase()}`}>
-                                                                    <h4 className='text-g text-capitalize'>{item.cat_name}</h4>
-                                                                </a>
-                                                                {item.items.length !== 0 && (
-                                                                    <ul className='mt-4 mb-0'>
-                                                                        {item.items.map((item_, index) => {
-                                                                            return (
-                                                                                <li key={index}>
-                                                                                    <Link
-                                                                                        onClick={props.closeNav}
-                                                                                        to={`/cat/${item.cat_name.toLowerCase()}/${item_.cat_name.replace(
-                                                                                            /\s/g,
-                                                                                            '-'
-                                                                                        ).toLowerCase()}`}
-                                                                                    >
-                                                                                        {item_.cat_name}
-                                                                                    </Link>
-                                                                                </li>
-                                                                            );
-                                                                        })}
-                                                                    </ul>
-                                                                )}
-                                                            </div>
-                                                        );
+                                                        if (item.cat_name !== 'Electronics' && item.cat_name !== 'Fashion') {
+                                                            return (
+                                                                <div className='col' key={index}>
+                                                                    <a href={`/cat/${item.cat_name.toLowerCase()}`}>
+                                                                        <h4 className='text-g text-capitalize'>{item.cat_name}</h4>
+                                                                    </a>
+                                                                    {item.items.length !== 0 && (
+                                                                        <ul className='mt-4 mb-0'>
+                                                                            {item.items.map((item_, index_) => {
+                                                                                return (
+                                                                                    <li key={index_}>
+                                                                                        <Link
+                                                                                            onClick={props.closeNav}
+                                                                                            to={`/cat/${item.cat_name.toLowerCase()}/${item_.cat_name.replace(
+                                                                                                /\s/g,
+                                                                                                '-'
+                                                                                            ).toLowerCase()}`}
+                                                                                        >
+                                                                                            {item_.cat_name}
+                                                                                        </Link>
+                                                                                    </li>
+                                                                                );
+                                                                            })}
+                                                                        </ul>
+                                                                    )}
+                                                                </div>
+                                                            );
+                                                        } else {
+                                                            return null;
+                                                        }
                                                     })}
                                                 <div className='col'>
                                                     <img
