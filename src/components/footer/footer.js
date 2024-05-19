@@ -32,7 +32,7 @@ const Footer = () => {
                     <div className='box d-flex align-items-center'>
                         <div className='info'>
                             <h2>Stay home & get your daily <br />needs from our shop</h2>
-                            <p>Start You'r Daily Shopping with Nest Mart</p>
+                            <p>Start Your Daily Shopping with FreshVegs</p>
                             <br /><br className='res-hide' />
                             <Newsletter />
                         </div>
@@ -53,7 +53,7 @@ const Footer = () => {
                                     <span><img src={Icon1} /></span>
                                     <div className='info'>
                                         <h4>Best prices & offers</h4>
-                                        <p>Orders Ghc50 or more</p>
+                                        <p>Orders Gh₵50 or more</p>
                                     </div>
                                 </div>
                             </div>
@@ -63,7 +63,7 @@ const Footer = () => {
                                     <span><img src={Icon2} /></span>
                                     <div className='info'>
                                         <h4>Free delivery</h4>
-                                        <p>Orders $50 or more</p>
+                                        <p>Orders Gh₵50 or more</p>
                                     </div>
                                 </div>
                             </div>
@@ -73,7 +73,7 @@ const Footer = () => {
                                     <span><img src={Icon3} /></span>
                                     <div className='info'>
                                         <h4>Great daily deal</h4>
-                                        <p>Orders Ghc50 or more</p>
+                                        <p>Orders Gh₵50 or more</p>
                                     </div>
                                 </div>
                             </div>
@@ -84,7 +84,7 @@ const Footer = () => {
                                     <span><img src={Icon4} /></span>
                                     <div className='info'>
                                         <h4>Wide assortment</h4>
-                                        <p>Orders Ghc50 or more</p>
+                                        <p>Orders Gh₵50 or more</p>
                                     </div>
                                 </div>
                             </div>
@@ -95,7 +95,7 @@ const Footer = () => {
                                     <span><img src={Icon5} /></span>
                                     <div className='info'>
                                         <h4>Easy returns</h4>
-                                        <p>Orders Ghc50 or more</p>
+                                        <p>Orders Gh₵50 or more</p>
                                     </div>
                                 </div>
                             </div>
@@ -114,9 +114,9 @@ const Footer = () => {
                                 <p>Get your fresh vegetables here!</p>
                                 <br />
 
-                                <p><LocationOnOutlinedIcon /> <strong>Address</strong>: 5171 W Campbell Ave undefined Kent, Utah 53127 United States</p>
-                                <p><HeadphonesOutlinedIcon /> <strong>Call Us:</strong> (+91) - 540-025-124553 </p>
-                                <p><EmailOutlinedIcon /> <strong>Email:</strong> sale@Nest.com</p>
+                                <p><LocationOnOutlinedIcon /> <strong>Address</strong>: Accra Legon, Ghana</p>
+                                <p><HeadphonesOutlinedIcon /> <strong>Call Us:</strong> (+233) xxxxxxxxx </p>
+                                <p><EmailOutlinedIcon /> <strong>Email:</strong> freshvegs@gmail.com</p>
                                 <p><WatchLaterOutlinedIcon /> <strong>Hours:</strong> 10:00 - 18:00, Mon - Sat</p>
 
                             </div>
@@ -126,7 +126,7 @@ const Footer = () => {
                                 <div className='row'>
                                     <div className='col'>
                                         <h3>Company</h3>
-                                        <ul class="footer-list mb-sm-5 mb-md-0">
+                                        <ul className="footer-list mb-sm-5 mb-md-0">
                                             <li><Link to="#">About Us</Link></li>
                                             <li><Link to="#">Delivery Information</Link></li>
                                             <li><Link to="#">Privacy Policy</Link></li>
@@ -206,7 +206,7 @@ const Footer = () => {
 
                         <div className='row lastStrip'>
                             <div className='col-md-3 part_1'>
-                                <p>© 2022, Nest - HTML Ecommerce Template
+                                <p>© 2024 - Freshvegs Inc. All rights reserved.
                                     All rights reserved</p>
                             </div>
 
@@ -215,7 +215,7 @@ const Footer = () => {
                                     <div className='phNo d-flex align-items-center mx-5'>
                                         <span><HeadphonesOutlinedIcon /></span>
                                         <div className='info ml-3'>
-                                            <h3 className='text-g mb-0'>1900 - 888</h3>
+                                            <h3 className='text-g mb-0'>+233 xxx</h3>
                                             <p className='mb-0'>24/7 Support Center</p>
                                         </div>
                                     </div>
@@ -223,7 +223,7 @@ const Footer = () => {
                                     <div className='phNo d-flex align-items-center  mx-5'>
                                         <span><HeadphonesOutlinedIcon /></span>
                                         <div className='info ml-3'>
-                                            <h3 className='text-g mb-0'>1900 - 888</h3>
+                                            <h3 className='text-g mb-0'>+233 xxx</h3>
                                             <p className='mb-0'>24/7 Support Center</p>
                                         </div>
                                     </div>
