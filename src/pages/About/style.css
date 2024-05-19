@@ -1,77 +1,111 @@
+/* General Styles */
+* {
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Roboto', sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
 .about-us {
+    max-width: 1200px;
+    margin: 0 auto;
     padding: 20px;
 }
 
-.intro-section,
-.story-section,
-.vision-mission-section,
-.team-section,
-.testimonials-section {
+/* Intro Section */
+.intro-section {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
     margin-bottom: 40px;
 }
 
-.intro-section h1,
-.story-section h2,
-.vision-mission-section h2,
-.team-section h2,
-.testimonials-section h2 {
-    color: #2e7d32;
+.intro-content {
     text-align: center;
     margin-bottom: 20px;
 }
 
-.intro-section p {
-    font-size: 1.1em;
-    line-height: 1.6;
-    margin-bottom: 10px;
+.intro-image img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 8px;
 }
 
-.story-section .story-content {
+/* Story Section */
+.story-section {
+    margin-bottom: 40px;
+}
+
+.story-content {
     display: flex;
+    flex-wrap: wrap;
     justify-content: space-between;
     align-items: center;
 }
 
-.story-section img {
-    width: 45%;
+.story-image {
+    flex: 0 0 45%;
+    max-width: 45%;
+}
+
+.story-image img {
+    max-width: 100%;
+    height: auto;
     border-radius: 8px;
 }
 
-.story-section .story-text {
-    width: 50%;
+.story-text {
+    flex: 0 0 50%;
+    max-width: 50%;
 }
 
-.story-section .story-text ul {
+.story-text ul {
     list-style-type: none;
     padding: 0;
 }
 
-.story-section .story-text li {
-    font-size: 1.1em;
-    line-height: 1.8;
+.story-text li {
+    display: flex;
+    align-items: center;
     margin-bottom: 10px;
 }
 
-.vision-mission-section .vision-mission-content {
+.vector-icon {
+    max-width: 30px;
+    max-height: 30px;
+    margin-left: 10px;
+}
+
+/* Vision & Mission Section */
+.vision-mission-section {
+    margin-bottom: 40px;
+}
+
+.vision-mission-content {
     display: flex;
+    flex-wrap: wrap;
     justify-content: space-between;
     align-items: center;
 }
 
-.vision-mission-section .vision,
-.vision-mission-section .mission {
-    width: 45%;
+.vision,
+.mission {
+    flex: 0 0 45%;
+    max-width: 45%;
 }
 
-.vision-mission-section h3 {
-    color: #2e7d32;
-    margin-bottom: 10px;
+.mission-image {
+    flex: 0 0 45%;
+    max-width: 45%;
 }
 
-.vision-mission-section p {
-    font-size: 1.1em;
-    line-height: 1.6;
-    margin-bottom: 10px;
+.mission-image img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 8px;
 }
 
 .shop-now {
@@ -88,46 +122,49 @@
     background-color: #1b5e20;
 }
 
-.team-section .team-content {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
+/* Team Section */
+.team-section {
+    margin-bottom: 40px;
 }
 
-.team-section .team-member {
+.team-content {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+.team-member {
+    flex: 0 0 23%;
+    max-width: 23%;
     text-align: center;
-    width: 23%;
+    margin-bottom: 20px;
 }
 
-.team-section .team-member img {
-    width: 100%;
+.team-member img {
+    max-width: 100%;
+    height: auto;
     border-radius: 8px;
-    margin-bottom: 10px;
 }
 
-.team-section .team-member h3 {
-    color: #2e7d32;
-    margin-bottom: 5px;
+/* Testimonials Section */
+.testimonials-section {
+    margin-bottom: 40px;
 }
 
-.testimonials-section .testimonials-content {
+.testimonials-content {
     display: flex;
+    flex-wrap: wrap;
     justify-content: space-between;
-    align-items: center;
 }
 
-.testimonials-section .testimonial {
-    width: 30%;
+.testimonial {
+    flex: 0 0 30%;
+    max-width: 30%;
     padding: 20px;
     background-color: #f9f9f9;
     border-radius: 8px;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-}
-
-.testimonials-section .testimonial p {
-    font-size: 1.1em;
-    line-height: 1.6;
-    margin-bottom: 10px;
+    margin-bottom: 20px;
 }
 
 .client-info {
@@ -142,12 +179,46 @@
     margin-right: 10px;
 }
 
-.client-info p {
-    margin: 0;
-    font-weight: bold;
+.rating {
+    display: flex;
+    color: #ffc107;
 }
 
-.client-info span {
-    color: gray;
-    font-size: 0.9em;
+.star {
+    font-size: 18px;
+    margin-right: 2px;
+}
+
+/* Media Queries */
+@media (max-width: 768px) {
+    .intro-section,
+    .vision-mission-content,
+    .team-content,
+    .testimonials-content {
+        flex-direction: column;
+    }
+
+    .story-content,
+    .vision-mission-content {
+        flex-wrap: wrap;
+    }
+
+    .story-image,
+    .story-text,
+    .vision,
+    .mission,
+    .mission-image,
+    .team-member,
+    .testimonial {
+        flex: 0 0 100%;
+        max-width: 100%;
+    }
+
+    .story-image,
+    .vision,
+    .mission,
+    .mission-image,
+    .team-member {
+        margin-bottom: 20px;
+    }
 }
