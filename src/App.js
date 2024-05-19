@@ -159,6 +159,7 @@ function App() {
           <Route exact={true} path="/cart" element={<Cart />} />
           <Route exact={true} path="/signIn" element={<SignIn />} />
           <Route exact={true} path="/signUp" element={<SignUp />} />
+          <Route exact={true} path="/about" element={<About />} />
           <Route exact={true} path="*" element={<NotFound />} />
         </Routes>
        <Footer/>
