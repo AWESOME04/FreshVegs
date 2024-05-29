@@ -34,7 +34,7 @@ const CatSlider = (props) => {
     useEffect(() => {
         allData.length !== 0 &&
         allData.forEach((item, index) => {
-            if (!['groceries', 'electronics', 'fashion'].includes(item.cat_name.toLowerCase())) {
+            if (item.cat_name.toLowerCase() === 'groceries') {
                 item.items.length !== 0 &&
                 item.items.forEach((item_) => {
                     catLength += item_.products.length;
@@ -56,7 +56,7 @@ const CatSlider = (props) => {
                     {
                         allData.length !== 0 &&
                         allData.map((item, index) => {
-                            if (!['groceries', 'electronics', 'fashion'].includes(item.cat_name.toLowerCase())) {
+                            if (item.cat_name.toLowerCase() === 'groceries') {
                                 return (
                                     <div className='item' key={index}>
                                         <Link to={`/cat/${item.cat_name.toLowerCase()}`}>

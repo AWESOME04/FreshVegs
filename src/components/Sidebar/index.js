@@ -124,18 +124,20 @@ const Sidebar = (props) => {
                     <div className='catList'>
                         {
                             props.data.length !== 0 && props.data.map((item, index) => {
-                                return (
-                                    <Link to={`/cat/${item.cat_name.toLowerCase()}`}>
-                                        <div className='catItem d-flex align-items-center'>
-                                            <span className='img'><img src='https://wp.alithemes.com/html/nest/demo/assets/imgs/theme/icons/category-1.svg' width={30} /></span>
-                                            <h4 className='mb-0 ml-3 mr-3 text-capitalize'>{item.cat_name}</h4>
-                                            <span className='d-flex align-items-center justify-content-center rounded-circle ml-auto'>
-                                            {totalLength[index]}</span>
-                                        </div>
-                                    </Link>
-                                )
+                                if (item.cat_name.toLowerCase() === 'groceries') {
+                                    return (
+                                        <Link to={`/cat/${item.cat_name.toLowerCase()}`}>
+                                            <div className='catItem d-flex align-items-center'>
+                                                <span className='img'><img src='https://wp.alithemes.com/html/nest/demo/assets/imgs/theme/icons/category-1.svg' width={30} /></span>
+                                                <h4 className='mb-0 ml-3 mr-3 text-capitalize'>{item.cat_name}</h4>
+                                                <span className='d-flex align-items-center justify-content-center rounded-circle ml-auto'>
+                        {totalLength[index]}</span>
+                                            </div>
+                                        </Link>
+                                    )
+                                }
+                                return null;
                             })
-
                         }
 
                     </div>

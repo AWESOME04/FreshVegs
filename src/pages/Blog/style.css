@@ -1,17 +1,18 @@
 .blog-section {
     display: flex;
     justify-content: center;
-    padding: 20px;
+    padding: 20px 0;
 }
 
 .container {
     display: flex;
     width: 100%;
-    max-width: 1200px;
+    max-width: 1400px;
+    margin: 0 auto;
 }
 
 .sidebar {
-    width: 25%;
+    width: 30%;
     padding-right: 20px;
 }
 
@@ -34,6 +35,7 @@
     border: 1px solid #ccc;
     border-radius: 4px;
 }
+
 
 .categories h3, .popular-tags h3, .gallery h3, .recently-added h3 {
     font-size: 1.2em;
@@ -87,7 +89,7 @@
 }
 
 .blog-posts {
-    width: 75%;
+    width: 70%;
 }
 
 .sort-bar {
@@ -192,4 +194,54 @@
 
 .pagination a:hover {
     background-color: #e0f7fa;
+}
+
+/* Responsive Styles */
+@media (max-width: 768px) {
+    .container {
+        flex-direction: column;
+    }
+
+    .sidebar {
+        width: 100%;
+        padding-right: 0;
+        margin-bottom: 20px;
+    }
+
+    .blog-posts {
+        width: 100%;
+    }
+
+    .post-card {
+        width: 48%;
+    }
+}
+
+@media (max-width: 480px) {
+    .post-card {
+        width: 100%;
+    }
+}
+
+
+@media (max-width: 768px) {
+    .container {
+        flex-direction: column;
+    }
+
+    .sidebar {
+        width: 100%;
+        padding-right: 0;
+        margin-bottom: 20px;
+    }
+
+    .blog-posts {
+        width: 100%;
+    }
+}
+
+@media (max-width: 480px) {
+    .post-card {
+        width: 100%;
+    }
 }
