@@ -14,6 +14,8 @@ import FormLabel from '@mui/material/FormLabel';
 import RangeSlider from 'react-range-slider-input';
 import 'react-range-slider-input/dist/style.css';
 
+import './style.css';
+
 import { MyContext } from '../../App';
 
 function valuetext(value) {
@@ -42,13 +44,13 @@ const Sidebar = (props) => {
     useEffect(() => {
         props.data.length !== 0 &&
         props.data.map((item, index) => {
-                item.items.length !== 0 &&
-                    item.items.map((item_) => {
-                        catLength += item_.products.length
-                    })
-                lengthArr.push(catLength)
-                catLength = 0;
+            item.items.length !== 0 &&
+            item.items.map((item_) => {
+                catLength += item_.products.length
             })
+            lengthArr.push(catLength)
+            catLength = 0;
+        })
 
         const list = lengthArr.filter((item, index) => lengthArr.indexOf(item) === index);
         setTotalLength(list)
@@ -62,10 +64,10 @@ const Sidebar = (props) => {
         brands = [];
         ratings=[];
         props.currentCatData.length !== 0 &&
-            props.currentCatData.map((item) => {
-                brands.push(item.brand);
-                ratings.push(parseFloat(item.rating))
-            })
+        props.currentCatData.map((item) => {
+            brands.push(item.brand);
+            ratings.push(parseFloat(item.rating))
+        })
 
         const brandList = brands.filter((item, index) => brands.indexOf(item) === index);
         setBrandFilters(brandList);
@@ -81,12 +83,12 @@ const Sidebar = (props) => {
     useEffect(() => {
         var price = 0;
         props.currentCatData.length !== 0 &&
-            props.currentCatData.map((item, index) => {
-                let prodPrice = parseInt(item.price.toString().replace(/,/g, ""));
-                if (prodPrice > price) {
-                    price = prodPrice
-                }
-            })
+        props.currentCatData.map((item, index) => {
+            let prodPrice = parseInt(item.price.toString().replace(/,/g, ""));
+            if (prodPrice > price) {
+                price = prodPrice
+            }
+        })
 
 
         setValue2(price)
@@ -119,7 +121,7 @@ const Sidebar = (props) => {
     return (
         <>
             <div className={`sidebar ${context.isOpenFilters===true && 'open'}`}>
-                <div className='card border-0 shadow res-hide'>
+                <div className='category-section card border-0 shadow res-hide'>
                     <h3>Category</h3>
                     <div className='catList'>
                         {
@@ -144,7 +146,7 @@ const Sidebar = (props) => {
                 </div>
 
 
-                <div className='card border-0 shadow'>
+                <div className='price-section card border-0 shadow'>
                     <h3>Fill by price</h3>
 
                     <RangeSlider value={value} onInput={setValue} min={100} max={60000} step={5} />
@@ -152,10 +154,10 @@ const Sidebar = (props) => {
 
                     <div className='d-flex pt-2 pb-2 priceRange'>
                         <span>From: <strong className='text-success'>Rs: {value[0]}</strong></span>
-                        <span className='ml-auto'>From: <strong className='text-success'>Rs: {value[1]}</strong></span>
+                        <span className='ml-auto'>To: <strong className='text-success'>Rs: {value[1]}</strong></span>
                     </div>
 
-                 
+
                     <div className='filters pt-5'>
                         <h5>Filter By Brand</h5>
 
