@@ -15,8 +15,6 @@ const NotFound = () => {
                     <p>The link you clicked may be broken or the page may have been removed.
                         visit the Homepage or Contact us about the problem</p>
                     <br />
-
-
                     <div className='d-flex'>
                         <Button className='btn-g btn-lg m-auto'><Link to={'/'}>Back to Home Page</Link></Button>
                     </div>

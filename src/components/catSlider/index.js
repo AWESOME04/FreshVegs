@@ -21,7 +21,7 @@ const CatSlider = (props) => {
         dots: false,
         infinite: false,
         speed: 500,
-        slidesToShow: 10,
+        slidesToShow: context.windowWidth > 992 ? 10 : context.windowWidth > 768 ? 6 : context.windowWidth > 576 ? 4 : 2,
         slidesToScroll: 1,
         fade: false,
         arrows: context.windowWidth > 992 ? true : false,

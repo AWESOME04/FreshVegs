@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 import Button from '@mui/material/Button';
 import KeyboardArrowDownIcon from '@mui/icons-material/KeyboardArrowDown';
 import GridViewIcon from '@mui/icons-material/GridView';
-import ShoppingBasketIcon from '@mui/icons-material/ShoppingBasket';
+import HeadphonesOutlinedIcon from '@mui/icons-material/HeadphonesOutlined';
 import { MyContext } from '../../../App';
 
 const Nav = (props) => {
@@ -14,7 +14,6 @@ const Nav = (props) => {
     const [openDropdownMenu, setDropdownMenu] = useState(false);
     const [openDropdownMenuIndex, setDropdownMenuIndex] = useState(null);
     const [openMegaMenu, setOpenMegaMenu] = useState(false);
-    const [showMobileMenu, setShowMobileMenu] = useState(false); // State for mobile menu
     const context = useContext(MyContext);
 
     useEffect(() => {
@@ -32,10 +31,6 @@ const Nav = (props) => {
     const openDropdownFun = (index) => {
         setDropdownMenu(!openDropdownMenu);
         setDropdownMenuIndex(index);
-    };
-
-    const toggleMobileMenu = () => {
-        setShowMobileMenu(!showMobileMenu);
     };
 
     return (
@@ -57,58 +52,62 @@ const Nav = (props) => {
                                     </li>
                                     {navData.length !== 0 &&
                                         navData.map((item, index) => {
-                                            return (
-                                                <li className='list-inline-item' key={index}>
-                                                    <Button onClick={() => openDropdownFun(index)}>
-                                                        <a
-                                                            href={`${windowWidth > 992 ? `/cat/${item.cat_name.toLowerCase()}` : '#'}`}
-                                                            onClick={() => sessionStorage.setItem('cat', item.cat_name.toLowerCase())}
-                                                        >
-                                                            {item.cat_name}{' '}
-                                                            <KeyboardArrowDownIcon
-                                                                className={`${openDropdownMenu === true && openDropdownMenuIndex === index && 'rotateIcon'}`}
-                                                            />
-                                                        </a>
-                                                    </Button>
-                                                    {item.items.length !== 0 && (
-                                                        <div
-                                                            className={`dropdown_menu ${openDropdownMenu === true && openDropdownMenuIndex === index && 'open'}`}
-                                                        >
-                                                            <ul>
-                                                                {item.items.map((item_, index_) => {
-                                                                    return (
-                                                                        <li key={index_}>
-                                                                            <Button onClick={props.closeNav}>
-                                                                                <a
-                                                                                    href={`/cat/${item.cat_name.toLowerCase()}/${item_.cat_name.replace(
-                                                                                        /\s/g,
-                                                                                        '-'
-                                                                                    ).toLowerCase()}`}
-                                                                                    onClick={() =>
-                                                                                        sessionStorage.setItem(
-                                                                                            'cat',
-                                                                                            item.cat_name.toLowerCase()
-                                                                                        )
-                                                                                    }
-                                                                                >
-                                                                                    {item_.cat_name}
-                                                                                </a>
-                                                                            </Button>
-                                                                        </li>
-                                                                    );
-                                                                })}
-                                                            </ul>
-                                                        </div>
-                                                    )}
-                                                </li>
-                                            );
+                                            if (item.cat_name !== 'Electronics' && item.cat_name !== 'Fashion') {
+                                                return (
+                                                    <li className='list-inline-item' key={index}>
+                                                        <Button onClick={() => openDropdownFun(index)}>
+                                                            <a
+                                                                href={`${windowWidth > 992 ? `/cat/${item.cat_name.toLowerCase()}` : '#'}`}
+                                                                onClick={() => sessionStorage.setItem('cat', item.cat_name.toLowerCase())}
+                                                            >
+                                                                {item.cat_name}{' '}
+                                                                <KeyboardArrowDownIcon
+                                                                    className={`${openDropdownMenu === true && openDropdownMenuIndex === index && 'rotateIcon'}`}
+                                                                />
+                                                            </a>
+                                                        </Button>
+                                                        {item.items.length !== 0 && (
+                                                            <div
+                                                                className={`dropdown_menu ${openDropdownMenu === true && openDropdownMenuIndex === index && 'open'}`}
+                                                            >
+                                                                <ul>
+                                                                    {item.items.map((item_, index_) => {
+                                                                        return (
+                                                                            <li key={index_}>
+                                                                                <Button onClick={props.closeNav}>
+                                                                                    <a
+                                                                                        href={`/cat/${item.cat_name.toLowerCase()}/${item_.cat_name.replace(
+                                                                                            /\s/g,
+                                                                                            '-'
+                                                                                        ).toLowerCase()}`}
+                                                                                        onClick={() =>
+                                                                                            sessionStorage.setItem(
+                                                                                                'cat',
+                                                                                                item.cat_name.toLowerCase()
+                                                                                            )
+                                                                                        }
+                                                                                    >
+                                                                                        {item_.cat_name}
+                                                                                    </a>
+                                                                                </Button>
+                                                                            </li>
+                                                                        );
+                                                                    })}
+                                                                </ul>
+                                                            </div>
+                                                        )}
+                                                    </li>
+                                                );
+                                            } else {
+                                                return null;
+                                            }
                                         })}
                                     <li className='list-inline-item'>
                                         <Button><Link to="/about">About</Link></Button>
                                     </li>
                                     <li className='list-inline-item position-static'>
                                         <Button onClick={() => setOpenMegaMenu(!openMegaMenu)}>
-                                            <Link to="#">
+                                            <Link>
                                                 Shop{' '}
                                                 <KeyboardArrowDownIcon className={`${openMegaMenu === true && 'rotateIcon'}`} />
                                             </Link>
@@ -117,38 +116,41 @@ const Nav = (props) => {
                                             <div className='row'>
                                                 {props.data.length !== 0 &&
                                                     props.data.map((item, index) => {
-                                                        return (
-                                                            <div className='col' key={index}>
-                                                                <a href={`/cat/${item.cat_name.toLowerCase()}`}>
-                                                                    <h4 className='text-g text-capitalize'>{item.cat_name}</h4>
-                                                                </a>
-                                                                {item.items.length !== 0 && (
-                                                                    <ul className='mt-4 mb-0'>
-                                                                        {item.items.map((item_, index_) => {
-                                                                            return (
-                                                                                <li key={index_}>
-                                                                                    <Link
-                                                                                        onClick={props.closeNav}
-                                                                                        to={`/cat/${item.cat_name.toLowerCase()}/${item_.cat_name.replace(
-                                                                                            /\s/g,
-                                                                                            '-'
-                                                                                        ).toLowerCase()}`}
-                                                                                    >
-                                                                                        {item_.cat_name}
-                                                                                    </Link>
-                                                                                </li>
-                                                                            );
-                                                                        })}
-                                                                    </ul>
-                                                                )}
-                                                            </div>
-                                                        );
+                                                        if (item.cat_name !== 'Electronics' && item.cat_name !== 'Fashion') {
+                                                            return (
+                                                                <div className='col' key={index}>
+                                                                    <a href={`/cat/${item.cat_name.toLowerCase()}`}>
+                                                                        <h4 className='text-g text-capitalize'>{item.cat_name}</h4>
+                                                                    </a>
+                                                                    {item.items.length !== 0 && (
+                                                                        <ul className='mt-4 mb-0'>
+                                                                            {item.items.map((item_, index_) => {
+                                                                                return (
+                                                                                    <li key={index_}>
+                                                                                        <Link
+                                                                                            onClick={props.closeNav}
+                                                                                            to={`/cat/${item.cat_name.toLowerCase()}/${item_.cat_name.replace(
+                                                                                                /\s/g,
+                                                                                                '-'
+                                                                                            ).toLowerCase()}`}
+                                                                                        >
+                                                                                            {item_.cat_name}
+                                                                                        </Link>
+                                                                                    </li>
+                                                                                );
+                                                                            })}
+                                                                        </ul>
+                                                                    )}
+                                                                </div>
+                                                            );
+                                                        } else {
+                                                            return null;
+                                                        }
                                                     })}
                                                 <div className='col'>
                                                     <img
                                                         src='https://wp.alithemes.com/html/nest/demo/assets/imgs/banner/banner-menu.png'
                                                         className='w-100'
-                                                        alt="Menu Banner"
                                                     />
                                                 </div>
                                             </div>
@@ -158,111 +160,33 @@ const Nav = (props) => {
                                         <Button><Link to="/blog">Blog</Link></Button>
                                     </li>
                                     <li className='list-inline-item'>
-                                        <Button><Link to="/contact">Contact</Link></Button>
+                                        <Button><Link>Contact</Link></Button>
                                     </li>
                                 </ul>
+                                {windowWidth < 992 && (
+                                    <>
+                                        {context.isLogin !== 'true' && (
+                                            <div className='pl-3 pr-3'>
+                                                <br />
+                                                <Link to={'/signIn'}>
+                                                    <Button className='btn btn-g btn-lg w-100' onClick={closeNav}>
+                                                        Sign In
+                                                    </Button>
+                                                </Link>
+                                            </div>
+                                        )}
+                                    </>
+                                )}
                             </nav>
-                            {/* Hamburger menu for mobile */}
-                            <div className="mobile-menu-container">
-                                <button
-                                    className="hamburger-menu"
-                                    onClick={toggleMobileMenu}
-                                >
-                                    <span
-                                        className={`hamburger-icon ${showMobileMenu ? 'open' : ''}`}
-                                    ></span>
-                                </button>
-                                <div className={`mobile-menu ${showMobileMenu ? 'open' : ''}`}>
-                                    <nav>
-                                        <ul>
-                                            <li>
-                                                <Link
-                                                    to={'/'}
-                                                    onClick={toggleMobileMenu}
-                                                >
-                                                    Home
-                                                </Link>
-                                            </li>
-                                            {navData.map((item, index) => (
-                                                <li key={index}>
-                                                    <Link
-                                                        to={`/cat/${item.cat_name.toLowerCase()}`}
-                                                        onClick={() => {
-                                                            sessionStorage.setItem(
-                                                                'cat',
-                                                                item.cat_name.toLowerCase()
-                                                            );
-                                                            toggleMobileMenu();
-                                                        }}
-                                                    >
-                                                        {item.cat_name}
-                                                    </Link>
-                                                    {item.items.length > 0 && (
-                                                        <ul>
-                                                            {item.items.map(
-                                                                (subItem, subIndex) => (
-                                                                    <li key={subIndex}>
-                                                                        <Link
-                                                                            to={`/cat/${item.cat_name.toLowerCase()}/${subItem.cat_name
-                                                                                .replace(
-                                                                                    /\s/g,
-                                                                                    '-'
-                                                                                )
-                                                                                .toLowerCase()}`}
-                                                                            onClick={() => {
-                                                                                sessionStorage.setItem(
-                                                                                    'cat',
-                                                                                    item.cat_name.toLowerCase()
-                                                                                );
-                                                                                toggleMobileMenu();
-                                                                            }}
-                                                                        >
-                                                                            {subItem.cat_name}
-                                                                        </Link>
-                                                                    </li>
-                                                                )
-                                                            )}
-                                                        </ul>
-                                                    )}
-                                                </li>
-                                            ))}
-                                            <li>
-                                                <Link
-                                                    to="/about"
-                                                    onClick={toggleMobileMenu}
-                                                >
-                                                    About
-                                                </Link>
-                                            </li>
-                                            <li>
-                                                <Link
-                                                    to="/blog"
-                                                    onClick={toggleMobileMenu}
-                                                >
-                                                    Blog
-                                                </Link>
-                                            </li>
-                                            <li>
-                                                <Link
-                                                    to="/contact"
-                                                    onClick={toggleMobileMenu}
-                                                >
-                                                    Contact
-                                                </Link>
-                                            </li>
-                                        </ul>
-                                    </nav>
-                                </div>
-                            </div>
                         </div>
-                        <div className="col-sm-2 part3 d-flex align-items-center">
-                            <div className="phNo d-flex align-items-center ml-auto">
+                        <div className='col-sm-2 part3 d-flex align-items-center'>
+                            <div className='phNo d-flex align-items-center ml-auto'>
                                 <span>
-                                    <ShoppingBasketIcon />
+                                    <HeadphonesOutlinedIcon />
                                 </span>
-                                <div className="info ml-3">
-                                    <h3 className="text-g mb-0">Cart</h3>
-                                    <p className="mb-0">View Cart</p>
+                                <div className='info ml-3'>
+                                    <h3 className='text-g mb-0'>+233 55 889</h3>
+                                    <p className='mb-0'>24/7 Support Center</p>
                                 </div>
                             </div>
                         </div>
