@@ -88,69 +88,18 @@ const Home = (props) => {
     }, [activeTab, activeTabData])
 
 
-
-
-
     const bestSellsArr = [];
-
-    // useEffect(() => {
-    //     prodData.length !== 0 &&
-    //         prodData.map((item) => {
-    //             if (item.cat_name === "Electronics") {
-    //                 item.items.length !== 0 &&
-    //                     item.items.map((item_) => {
-    //                         item_.products.length !== 0 &&
-    //                             item_.products.map((product, index) => {
-    //                                 bestSellsArr.push(product);
-    //                             })
-    //                     })
-    //             }
-    //
-    //         });
-
-
-    //     setBestSells(bestSellsArr);
-    //
-    // }, [])
-
-
-
 
     return (
         <div style={{display:'block'}}>
             <SliderBanner />
             <CatSlider data={prodData} />
 
-            {/*<Banners />*/}
-
-
             <section className='homeProducts homeProductWrapper'>
                 <div className='container-fluid'>
                     <div className='d-flex align-items-center homeProductsTitleWrap'>
                         <h2 className='hd mb-0 mt-0 res-full'>Popular Products</h2>
                         <ul className='list list-inline ml-auto filterTab mb-0 res-full'>
-
-                            {
-                                catArray.length !== 0 &&
-                                catArray.map((cat, index) => {
-                                    return (
-                                        <li className="list list-inline-item">
-                                            <a className={`cursor text-capitalize 
-                                                ${activeTabIndex === index ? 'act' : ''}`}
-                                                onClick={() => {
-                                                    setactiveTab(cat)
-                                                    setactiveTabIndex(index);
-                                                    productRow.current.scrollLeft=0;
-                                                    setIsLoadingProducts(true);
-                                                }}
-                                            >
-                                                {cat}
-                                            </a>
-                                        </li>
-                                    )
-                                })
-                            }
-
                         </ul>
                     </div>
 
@@ -183,7 +132,6 @@ const Home = (props) => {
                 <div className='container-fluid'>
                     {/*<div className='d-flex align-items-center'>*/}
                     {/*    <h2 className='hd mb-0 mt-0'>Daily Best Sells</h2>*/}
-
                     {/*</div>*/}
                     <br className='res-hide' /><br  className='res-hide'/>
                     <div className='row'>

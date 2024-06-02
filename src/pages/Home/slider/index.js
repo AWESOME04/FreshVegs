@@ -26,7 +26,6 @@ const HomeSlider = () => {
     };
 
 
-
     return (
         <section className='homeSlider'>
             <div className='container-fluid position-relative'>

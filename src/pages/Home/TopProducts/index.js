@@ -68,10 +68,6 @@ const TopProducts = (props) => {
                         </div>
                     </div>
                 </div>
-
-
-
-
             </div>
         </>
     )
