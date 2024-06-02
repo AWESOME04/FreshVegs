@@ -1,22 +1,35 @@
-.contact-page {
+/* General styles */
+.contact-page-container {
     max-width: 1200px;
     margin: 0 auto;
     padding: 40px;
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 40px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
+.contact-details {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    gap: 40px;
+    width: 100%;
+}
+
+/* Contact Info */
 .contact-info {
     background-color: #f8f8f8;
     padding: 20px;
     border-radius: 8px;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    flex: 1;
 }
 
 .contact-info div {
     display: flex;
     align-items: center;
+    justify-content: center;
     margin-bottom: 16px;
 }
 
@@ -25,25 +38,33 @@
     color: #4caf50;
 }
 
+.contact-info div p {
+    margin: 0;
+}
+
 /* Contact Form */
 .contact-form {
     background-color: #f8f8f8;
     padding: 20px;
     border-radius: 8px;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    flex: 1;
 }
 
 .contact-form h2 {
     font-size: 24px;
     margin-bottom: 16px;
+    text-align: center;
 }
 
 .contact-form p {
     margin-bottom: 24px;
+    text-align: center;
 }
 
 .form-group {
     margin-bottom: 16px;
+    text-align: left;
 }
 
 .form-group input,
@@ -64,17 +85,23 @@
     cursor: pointer;
     font-size: 16px;
     transition: background-color 0.3s ease;
+    display: block;
+    margin: 0 auto;
 }
 
 .submit-btn:hover {
     background-color: #388e3c;
 }
 
+/* Map */
 .map {
     background-color: #f8f8f8;
     padding: 20px;
     border-radius: 8px;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    text-align: center;
+    margin-top: 40px;
 }
 
 .map iframe {
@@ -83,14 +110,20 @@
     border: none;
 }
 
+.map p {
+    margin-top: 8px;
+}
+
+/* Mobile Responsiveness */
 @media (max-width: 768px) {
-    .contact-page {
-        grid-template-columns: 1fr;
+    .contact-details {
+        flex-direction: column;
+        align-items: center;
     }
 
     .contact-info,
-    .contact-form,
-    .map {
+    .contact-form {
         margin-bottom: 24px;
+        width: 100%;
     }
 }
