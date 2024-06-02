@@ -160,7 +160,7 @@ const Nav = (props) => {
                                         <Button><Link to="/blog">Blog</Link></Button>
                                     </li>
                                     <li className='list-inline-item'>
-                                        <Button><Link>Contact</Link></Button>
+                                        <Button><Link to="/contact">Contact</Link></Button>
                                     </li>
                                 </ul>
                                 {windowWidth < 992 && (
