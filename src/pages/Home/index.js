@@ -1,13 +1,10 @@
 import React, { useState, useEffect, useRef, useContext } from 'react';
 import SliderBanner from './slider/index';
 import CatSlider from '../../components/catSlider';
-import Banners from '../../components/banners';
 import './style.css';
 import Product from '../../components/product';
-import Banner4 from '../../assets/images/banner4.jpg';
 import Slider from "react-slick";
 import TopProducts from './TopProducts';
-import axios from 'axios';
 import { MyContext } from '../../App';
 
 const Home = (props) => {
