@@ -1,4 +1,3 @@
-/* General Styles */
 * {
     box-sizing: border-box;
 }
@@ -15,7 +14,6 @@ body {
     padding: 20px;
 }
 
-/* Intro Section */
 .intro-section {
     display: flex;
     flex-direction: column;
@@ -34,7 +32,6 @@ body {
     border-radius: 8px;
 }
 
-/* Story Section */
 .story-section {
     margin-bottom: 40px;
 }

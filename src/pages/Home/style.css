@@ -25,3 +25,7 @@
 .newsLetterSection .box .img{width: 45%;}
 .newsLetterSection .box .img img{position: relative; top: 60px;}
 .newsLetterSection .box  .newsLetterBanner{position: relative !important; left: 0px !important; bottom: inherit !important;}
+
+.client-testimonial{
+    padding: 50px;
+}

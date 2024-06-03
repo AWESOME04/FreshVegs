@@ -1,5 +1,6 @@
 import React, { useState, useEffect, useRef, useContext } from 'react';
 import SliderBanner from './slider/index';
+import ClientTestimonial from '../../components/clientTestimonials/index';
 import CatSlider from '../../components/catSlider';
 import './style.css';
 import Product from '../../components/product';
@@ -71,9 +72,9 @@ const Home = (props) => {
     }, [activeTab, prodData]);
 
     return (
-        <div style={{ display: 'block' }}>
-            <SliderBanner />
-            <CatSlider data={prodData} />
+        <div style={{display: 'block'}}>
+            <SliderBanner/>
+            <CatSlider data={prodData}/>
 
             <section className='homeProducts homeProductWrapper'>
                 <div className='container-fluid'>
@@ -101,7 +102,7 @@ const Home = (props) => {
                     <div className={`productRow ${isLoadingProducts ? 'loading' : ''}`} ref={productRow}>
                         {activeTabData.map((item, index) => (
                             <div className='item' key={index}>
-                                <Product tag={item.type} item={item} />
+                                <Product tag={item.type} item={item}/>
                             </div>
                         ))}
                     </div>
@@ -110,13 +111,13 @@ const Home = (props) => {
 
             <section className='homeProducts homeProductsRow2 pt-0'>
                 <div className='container-fluid'>
-                    <br className='res-hide' /><br className='res-hide' />
+                    <br className='res-hide'/><br className='res-hide'/>
                     <div className='row'>
                         <div className='col-md-9'>
                             <Slider {...settings} className='prodSlider'>
                                 {bestSells.map((item, index) => (
                                     <div className='item' key={index}>
-                                        <Product tag={item.type} item={item} />
+                                        <Product tag={item.type} item={item}/>
                                     </div>
                                 ))}
                             </Slider>
@@ -129,20 +130,24 @@ const Home = (props) => {
                 <div className='container-fluid'>
                     <div className='row'>
                         <div className='col'>
-                            <TopProducts title="Top Selling" />
+                            <TopProducts title="Top Selling"/>
                         </div>
                         <div className='col'>
-                            <TopProducts title="Trending Products" />
+                            <TopProducts title="Trending Products"/>
                         </div>
                         <div className='col'>
-                            <TopProducts title="Recently added" />
+                            <TopProducts title="Recently added"/>
                         </div>
                         <div className='col'>
-                            <TopProducts title="Top Rated" />
+                            <TopProducts title="Top Rated"/>
                         </div>
+
                     </div>
                 </div>
             </section>
+            <div className="client-testimonial">
+                <ClientTestimonial/>
+            </div>
         </div>
     );
 };
