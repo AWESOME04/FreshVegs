@@ -9,8 +9,8 @@
 }
 
 .testimonial {
-    flex: 0 0 30%;
-    max-width: 30%;
+    flex: 0 0 100%;
+    max-width: 100%;
     padding: 20px;
     background-color: #f9f9f9;
     border-radius: 8px;
@@ -40,10 +40,19 @@
     margin-right: 2px;
 }
 
+@media (max-width: 992px) {
+    .testimonial {
+        flex: 0 0 100%;
+        max-width: 100%;
+    }
+}
 
-/*Mobile Responsiveness*/
 @media (max-width: 768px) {
     .testimonials-content {
         flex-direction: column;
+    }
+
+    .testimonial {
+        padding: 15px;
     }
 }

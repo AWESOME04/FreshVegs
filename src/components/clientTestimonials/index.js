@@ -2,6 +2,7 @@ import React from "react";
 import Cust1 from "../../assets/images/Rob.png";
 import Cust2 from "../../assets/images/Dianne.png";
 import Cust3 from "../../assets/images/Pena.png";
+import './style.css';
 
 export default function clientTestimonials(){
     return (

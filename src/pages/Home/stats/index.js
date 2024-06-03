@@ -1,5 +1,6 @@
 import React from "react";
-import stats from "../../assets/images/stats.png";
+import stats from "../../../assets/images/stats.png";
+import './style.css'
 
 export default function Stats(){
     return (

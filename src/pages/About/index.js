@@ -2,9 +2,6 @@ import React from 'react';
 import './style.css';
 import Team1 from "../../assets/images/1.png";
 import Team2 from "../../assets/images/2.png";
-import Cust1 from "../../assets/images/Rob.png";
-import Cust2 from "../../assets/images/Dianne.png";
-import Cust3 from "../../assets/images/Pena.png";
 import Farmer from "../../assets/images/fresh.png";
 import Farmer2 from "../../assets/images/fresh2.png";
 import Farmer3 from "../../assets/images/Farmer3.png";
@@ -13,7 +10,6 @@ import vector2 from "../../assets/vectors/Icon-1.png";
 import vector3 from "../../assets/vectors/Icon-2.png";
 import vector4 from "../../assets/vectors/leaf 2.png";
 import ClientTestimonials from "../../components/clientTestimonials/index";
-import "../../components/clientTestimonials/style.css";
 
 const AboutUs = () => {
     return (

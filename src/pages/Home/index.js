@@ -2,6 +2,7 @@ import React, { useState, useEffect, useRef, useContext } from 'react';
 import SliderBanner from './slider/index';
 import ClientTestimonial from '../../components/clientTestimonials/index';
 import CatSlider from '../../components/catSlider';
+import Stats from "./stats/index";
 import './style.css';
 import Product from '../../components/product';
 import Slider from "react-slick";
@@ -147,6 +148,9 @@ const Home = (props) => {
             </section>
             <div className="client-testimonial">
                 <ClientTestimonial/>
+            </div>
+            <div className="stats">
+                <Stats/>
             </div>
         </div>
     );
