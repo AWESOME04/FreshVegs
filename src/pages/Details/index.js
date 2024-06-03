@@ -83,7 +83,7 @@ const DetailsPage = (props) => {
         slidesToShow: 5,
         slidesToScroll: 1,
         fade: false,
-        arrows: context.windowWidth > 992 ? true : false
+        arrows: context.windowWidth > 992
     };
 
 
@@ -94,7 +94,7 @@ const DetailsPage = (props) => {
         slidesToShow: 4,
         slidesToScroll: 1,
         fade: false,
-        arrows: context.windowWidth > 992 ? true : false
+        arrows: context.windowWidth > 992
     };
 
 
@@ -119,9 +119,6 @@ const DetailsPage = (props) => {
             setinputValue(inputValue - 1)
         }
     }
-
-
-
 
 
     useEffect(() => {
@@ -616,7 +613,7 @@ const DetailsPage = (props) => {
 
 
                                             {
-                                                reviewsArr.length !== 0 && reviewsArr !== undefined &&
+                                                reviewsArr.length !== 0 && true &&
                                                 reviewsArr.map((item, index) => {
 
 
@@ -716,7 +713,7 @@ const DetailsPage = (props) => {
 
                                             <div className="progressBarBox d-flex align-items-center">
                                                 <span className='mr-3'>5 star</span>
-                                                <div class="progress" style={{ width: '85%', height: '20px' }}>
+                                                <div className="progress" style={{ width: '85%', height: '20px' }}>
                                                     <div class="progress-bar bg-success" style={{ width: '75%', height: '20px' }}>75%</div>
                                                 </div>
                                             </div>
@@ -756,20 +753,11 @@ const DetailsPage = (props) => {
                                                 </div>
                                             </div>
 
-
-
-
                                         </div>
-
-
-
 
                                     </div>
                                 </div>
                             }
-
-
-
 
                         </div>
                     </div>
@@ -809,4 +797,3 @@ const DetailsPage = (props) => {
 
 
 export default DetailsPage;
-

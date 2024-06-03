@@ -26,7 +26,6 @@ import NewsletterImg from '../../assets/images/newsletter.png';
 const Footer = () => {
     return (
         <>
-
             <section className='newsLetterSection'>
                 <div className='container-fluid'>
                     <div className='box d-flex align-items-center'>
@@ -50,7 +49,7 @@ const Footer = () => {
                         <div className='row'>
                             <div className='col'>
                                 <div className='box d-flex align-items-center w-100'>
-                                    <span><img src={Icon1} /></span>
+                                    <span><img src={Icon1} alt="icon-1"/></span>
                                     <div className='info'>
                                         <h4>Best prices & offers</h4>
                                         <p>Orders Gh₵50 or more</p>
@@ -60,7 +59,7 @@ const Footer = () => {
 
                             <div className='col'>
                                 <div className='box d-flex align-items-center w-100'>
-                                    <span><img src={Icon2} /></span>
+                                    <span><img src={Icon2} alt="icon-2"/></span>
                                     <div className='info'>
                                         <h4>Free delivery</h4>
                                         <p>Orders Gh₵50 or more</p>
@@ -70,7 +69,7 @@ const Footer = () => {
 
                             <div className='col'>
                                 <div className='box d-flex align-items-center w-100'>
-                                    <span><img src={Icon3} /></span>
+                                    <span><img src={Icon3} alt="icon-3"/></span>
                                     <div className='info'>
                                         <h4>Great daily deal</h4>
                                         <p>Orders Gh₵50 or more</p>
@@ -81,7 +80,7 @@ const Footer = () => {
 
                             <div className='col'>
                                 <div className='box d-flex align-items-center w-100'>
-                                    <span><img src={Icon4} /></span>
+                                    <span><img src={Icon4} alt="icon-4"/></span>
                                     <div className='info'>
                                         <h4>Wide assortment</h4>
                                         <p>Orders Gh₵50 or more</p>
@@ -92,7 +91,7 @@ const Footer = () => {
 
                             <div className='col'>
                                 <div className='box d-flex align-items-center w-100'>
-                                    <span><img src={Icon5} /></span>
+                                    <span><img src={Icon5} alt="icon-5"/></span>
                                     <div className='info'>
                                         <h4>Easy returns</h4>
                                         <p>Orders Gh₵50 or more</p>

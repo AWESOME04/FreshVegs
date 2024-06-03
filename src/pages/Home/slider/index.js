@@ -21,7 +21,7 @@ const HomeSlider = () => {
         slidesToShow: 1,
         slidesToScroll: 1,
         fade: true,
-        arrows: context.windowWidth>992 ? true : false,
+        arrows: context.windowWidth>992,
         autoplay:true
     };
 

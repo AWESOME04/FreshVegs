@@ -32,7 +32,7 @@ const Listing = (props) => {
                 //page == single cat
                 if (props.single === true) {
 
-                    if (item.cat_name.toLowerCase() == id.toLowerCase()) {
+                    if (item.cat_name.toLowerCase() === id.toLowerCase()) {
 
                         item.items.length !== 0 &&
                             item.items.map((item_) => {
@@ -50,7 +50,7 @@ const Listing = (props) => {
                     item.items.length !== 0 &&
                         item.items.map((item_, index_) => {
                             // console.log(item_.cat_name.replace(/[^A-Za-z]/g,"-").toLowerCase())
-                            if (item_.cat_name.split(' ').join('-').toLowerCase() == id.split(' ').join('-').toLowerCase()) {
+                            if (item_.cat_name.split(' ').join('-').toLowerCase() === id.split(' ').join('-').toLowerCase()) {
                                 item_.products.map((item__, index__) => {
 
                                     itemsData.push({ ...item__, parentCatName: item.cat_name, subCatName: item_.cat_name })
@@ -91,7 +91,6 @@ const Listing = (props) => {
                         item.items.map((item_) => {
                             item_.products.map((item__, index__) => {
                                 if (item__.brand.toLowerCase() === keyword.toLowerCase()) {
-                                    //console.log(item__)
                                     itemsData.push({ ...item__, parentCatName: item.cat_name, subCatName: item_.cat_name })
                                 }
 
@@ -102,12 +101,11 @@ const Listing = (props) => {
 
 
                 }
-                //page == double cat
                 else {
                     item.items.length !== 0 &&
                         item.items.map((item_, index_) => {
                             // console.log(item_.cat_name.replace(/[^A-Za-z]/g,"-").toLowerCase())
-                            if (item_.cat_name.split(' ').join('-').toLowerCase() == id.split(' ').join('-').toLowerCase()) {
+                            if (item_.cat_name.split(' ').join('-').toLowerCase() === id.split(' ').join('-').toLowerCase()) {
                                 item_.products.map((item__, index__) => {
                                     if (item__.brand.toLowerCase() === keyword.toLowerCase()) {
                                         itemsData.push({ ...item__, parentCatName: item.cat_name, subCatName: item_.cat_name })
@@ -124,7 +122,6 @@ const Listing = (props) => {
 
 
         const list2 = itemsData.filter((item, index) => itemsData.indexOf(item) === index);
-        //console.log(itemsData)
 
 
         setData(list2);
@@ -140,8 +137,6 @@ const Listing = (props) => {
 
         props.data.length !== 0 &&
             props.data.map((item, index) => {
-
-                //page == single cat
                 if (props.single === true) {
                     if (id === item.cat_name.toLowerCase()) {
                         item.items.length !== 0 &&
@@ -161,7 +156,7 @@ const Listing = (props) => {
                 else {
                     item.items.length !== 0 &&
                         item.items.map((item_, index_) => {
-                            if (item_.cat_name.split(' ').join('-').toLowerCase() == id.split(' ').join('-').toLowerCase()) {
+                            if (item_.cat_name.split(' ').join('-').toLowerCase() === id.split(' ').join('-').toLowerCase()) {
                                 item_.products.map((product) => {
                                     let price = parseInt(product.price.toString().replace(/,/g, ""))
                                     if (minValue <= price && maxValue >= price) {
@@ -191,7 +186,7 @@ const Listing = (props) => {
                 //page == single cat
                 if (props.single === true) {
 
-                    if (item.cat_name.toLowerCase() == id.toLowerCase()) {
+                    if (item.cat_name.toLowerCase() === id.toLowerCase()) {
 
                         item.items.length !== 0 &&
                             item.items.map((item_) => {
@@ -209,7 +204,7 @@ const Listing = (props) => {
                     item.items.length !== 0 &&
                         item.items.map((item_, index_) => {
                             // console.log(item_.cat_name.replace(/[^A-Za-z]/g,"-").toLowerCase())
-                            if (item_.cat_name.split(' ').join('-').toLowerCase() == id.split(' ').join('-').toLowerCase()) {
+                            if (item_.cat_name.split(' ').join('-').toLowerCase() === id.split(' ').join('-').toLowerCase()) {
                                 item_.products.map((item__, index__) => {
 
                                     itemsData.push({ ...item__, parentCatName: item.cat_name, subCatName: item_.cat_name })

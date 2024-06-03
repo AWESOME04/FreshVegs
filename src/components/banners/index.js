@@ -12,23 +12,21 @@ const Banners = ()=>{
                 <div className='row'>
                     <div className='col'>
                         <div className='box'>
-                            <img src={Banner1} className='w-100 transition' />
+                            <img src={Banner1} className='w-100 transition'  alt="banner-1"/>
                         </div>
                     </div>
 
                     <div className='col'>
                         <div className='box'>
-                            <img src={Banner2} className='w-100 transition' />
+                            <img src={Banner2} className='w-100 transition' alt="banner-2"/>
                         </div>
                     </div>
 
                     <div className='col'>
                         <div className='box'>
-                            <img src={Banner3} className='w-100 transition' />
+                            <img src={Banner3} className='w-100 transition' alt="banner-3"/>
                         </div>
                     </div>
-
-                    
                 </div>
             </div>
         </div>

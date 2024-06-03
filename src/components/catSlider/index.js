@@ -17,20 +17,20 @@ const CatSlider = (props) => {
 
     const slider = useRef();
 
-    var settings = {
+    const settings = {
         dots: false,
         infinite: false,
         speed: 500,
         slidesToShow: context.windowWidth > 992 ? 10 : context.windowWidth > 768 ? 6 : context.windowWidth > 576 ? 4 : 2,
         slidesToScroll: 1,
         fade: false,
-        arrows: context.windowWidth > 992 ? true : false,
+        arrows: context.windowWidth > 992,
         autoplay: context.windowWidth > 992 ? 2000 : false,
-        centerMode: context.windowWidth > 992 ? true : false
+        centerMode: context.windowWidth > 992
     };
 
-    var catLength = 0;
-    var lengthArr = [];
+    let catLength = 0;
+    const lengthArr = [];
     useEffect(() => {
         allData.length !== 0 &&
         allData.forEach((item, index) => {

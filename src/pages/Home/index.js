@@ -24,12 +24,12 @@ const Home = (props) => {
 
     var settings = {
         dots: false,
-        infinite: context.windowWidth < 992 ? false : true,
+        infinite: context.windowWidth < 992,
         speed: 500,
         slidesToShow: 3,
         slidesToScroll: 1,
         fade: false,
-        arrows: context.windowWidth < 992 ? false : true,
+        arrows: context.windowWidth < 992,
     };
 
     const nonFoodCategories = ["Mobiles & Tablets", "TV & Speaker", "Men Western Wear", "Women Western Wear"];

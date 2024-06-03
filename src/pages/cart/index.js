@@ -184,13 +184,8 @@ const Cart = () => {
                                         <KeyboardBackspaceIcon /> Continue Shopping</Button>
 
                                 </Link>
-                                {/* <Button className='btn-g ml-auto' onClick={updateCartData}>
-                    <RefreshIcon /> Update Cart</Button> */}
-
 
                             </div>
-
-
                         </div>
 
                         <div className='col-md-4 cartRightBox'>
