@@ -9,6 +9,7 @@ import Slider from "react-slick";
 import TopProducts from './TopProducts';
 import { MyContext } from '../../App';
 
+
 const Home = (props) => {
     const [prodData, setProdData] = useState([]);
     const [catArray, setCatArray] = useState([]);
@@ -21,7 +22,7 @@ const Home = (props) => {
     const productRow = useRef();
     const context = useContext(MyContext);
 
-    var settings = {
+    const settings = {
         dots: false,
         infinite: context.windowWidth < 992,
         speed: 500,

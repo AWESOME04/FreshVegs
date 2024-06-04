@@ -109,10 +109,12 @@ const Nav = (props) => {
                                         <Button onClick={() => setOpenMegaMenu(!openMegaMenu)}>
                                             <Link>
                                                 Shop{' '}
-                                                <KeyboardArrowDownIcon className={`${openMegaMenu === true && 'rotateIcon'}`} />
+                                                <KeyboardArrowDownIcon
+                                                    className={`${openMegaMenu === true && 'rotateIcon'}`}/>
                                             </Link>
                                         </Button>
-                                        <div className={`dropdown_menu megaMenu w-100 ${openMegaMenu === true && 'open'}`}>
+                                        <div
+                                            className={`dropdown_menu megaMenu w-100 ${openMegaMenu === true && 'open'}`}>
                                             <div className='row'>
                                                 {props.data.length !== 0 &&
                                                     props.data.map((item, index) => {
@@ -161,6 +163,9 @@ const Nav = (props) => {
                                     </li>
                                     <li className='list-inline-item'>
                                         <Button><Link to="/contact">Contact</Link></Button>
+                                    </li>
+                                    <li className='list-inline-item'>
+                                        <Button><Link to="/faq">FAQ</Link></Button>
                                     </li>
                                 </ul>
                                 {windowWidth < 992 && (

@@ -17,6 +17,7 @@ import Cart from './pages/cart';
 import SignIn from './pages/SignIn';
 import SignUp from './pages/SignUp';
 import Contact from './pages/Contact/Contact';
+import FAQ from './pages/FAQ/index';
 import Loader from './assets/images/loading.gif';
 
 import data from './data';
@@ -164,6 +165,7 @@ function App() {
           <Route exact={true} path="/about" element={<About />} />
           <Route exact={true} path="/blog" element={<Blog />} />
           <Route exact={true} path="/contact" element={<Contact />} />
+          <Route exact={true} path="/faq" element={<FAQ />} />
           <Route exact={true} path="*" element={<NotFound />} />
         </Routes>
        <Footer/>
