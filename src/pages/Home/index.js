@@ -3,6 +3,7 @@ import SliderBanner from './slider/index';
 import ClientTestimonial from '../../components/clientTestimonials/index';
 import CatSlider from '../../components/catSlider';
 import Stats from "./stats/index";
+import Partners from "./partners/index";
 import './style.css';
 import Product from '../../components/product';
 import Slider from "react-slick";
@@ -152,6 +153,9 @@ const Home = (props) => {
             </div>
             <div className="stats">
                 <Stats/>
+            </div>
+            <div className="stats">
+                <Partners/>
             </div>
         </div>
     );
