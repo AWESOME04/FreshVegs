@@ -9,11 +9,13 @@ import Footer from './components/footer/footer';
 import Home from './pages/Home/index';
 import About from './pages/About/index';
 import Blog from './pages/Blog/index';
+
 import Listing from './pages/Listing';
 import NotFound from './pages/NotFound';
 import DetailsPage from './pages/Details';
 import axios from 'axios';
 import Cart from './pages/cart';
+
 import SignIn from './pages/SignIn';
 import SignUp from './pages/SignUp';
 import Contact from './pages/Contact/Contact';

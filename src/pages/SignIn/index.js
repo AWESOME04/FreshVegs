@@ -165,7 +165,7 @@ const SignIn = () => {
 
                             <div className='form-group mt-5 mb-4 w-100 signInOr'>
                                 <p className='text-center'>OR</p>
-                                <Button className='w-100' variant="outlined" onClick={signInWithGoogle}><img src={GoogleImg} />
+                                <Button className='w-100' variant="outlined" onClick={signInWithGoogle}><img src={GoogleImg} alt=""/>
                                     Sign In with Google</Button>
                             </div>
 
