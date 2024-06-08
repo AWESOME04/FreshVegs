@@ -1,4 +1,4 @@
-import React, { useContext, useRef, useState, useEffect } from 'react';
+import React, {useState, useContext, useRef, useEffect } from 'react';
 import { Link, useParams } from 'react-router-dom';
 import Rating from '@mui/material/Rating';
 import InnerImageZoom from 'react-inner-image-zoom';
@@ -16,7 +16,7 @@ import { MyContext } from '../../App';
 
 const DetailsPage = (props) => {
 
-    const [zoomInage, setZoomImage] = useState('https://www.jiomart.com/images/product/original/490000363/maggi-2-minute-masala-noodles-70-g-product-images-o490000363-p490000363-0-202305292130.jpg');
+    const [zoomImage, setZoomImage] = useState('https://www.jiomart.com/images/product/original/490000363/maggi-2-minute-masala-noodles-70-g-product-images-o490000363-p490000363-0-202305292130.jpg');
 
     const [bigImageSize, setBigImageSize] = useState([1500, 1500]);
     const [smlImageSize, setSmlImageSize] = useState([150, 150]);
@@ -78,7 +78,7 @@ const DetailsPage = (props) => {
         slidesToShow: 5,
         slidesToScroll: 1,
         fade: false,
-        arrows: context.windowWidth > 992
+        arrows: context.windowWidth > 992 ? true : false
     };
 
 
@@ -89,7 +89,7 @@ const DetailsPage = (props) => {
         slidesToShow: 4,
         slidesToScroll: 1,
         fade: false,
-        arrows: context.windowWidth > 992
+        arrows: context.windowWidth > 992 ? true : false
     };
 
 
@@ -116,21 +116,24 @@ const DetailsPage = (props) => {
     }
 
 
+
+
+
     useEffect(() => {
         window.scrollTo(0, 0)
 
         props.data.length !== 0 &&
-            props.data.map((item) => {
-                item.items.length !== 0 &&
-                    item.items.map((item_) => {
-                        item_.products.length !== 0 &&
-                            item_.products.map((product) => {
-                                if (parseInt(product.id) === parseInt(id)) {
-                                    setCurrentProduct(product);
-                                }
-                            })
-                    })
+        props.data.map((item) => {
+            item.items.length !== 0 &&
+            item.items.map((item_) => {
+                item_.products.length !== 0 &&
+                item_.products.map((product) => {
+                    if (parseInt(product.id) === parseInt(id)) {
+                        setCurrentProduct(product);
+                    }
+                })
             })
+        })
 
 
 
@@ -144,23 +147,23 @@ const DetailsPage = (props) => {
         const related_products = [];
 
         props.data.length !== 0 &&
-            props.data.map((item) => {
-                if (prodCat.parentCat === item.cat_name) {
-                    item.items.length !== 0 &&
-                        item.items.map((item_) => {
-                            if (prodCat.subCatName === item_.cat_name) {
-                                item_.products.length !== 0 &&
-                                    item_.products.map((product, index) => {
-                                        if (product.id !== parseInt(id)) {
-                                            related_products.push(product)
-                                        }
-
-                                    })
+        props.data.map((item) => {
+            if (prodCat.parentCat === item.cat_name) {
+                item.items.length !== 0 &&
+                item.items.map((item_) => {
+                    if (prodCat.subCatName === item_.cat_name) {
+                        item_.products.length !== 0 &&
+                        item_.products.map((product, index) => {
+                            if (product.id !== parseInt(id)) {
+                                related_products.push(product)
                             }
-                        })
-                }
 
-            })
+                        })
+                    }
+                })
+            }
+
+        })
 
 
         if (related_products.length !== 0) {
@@ -257,10 +260,10 @@ const DetailsPage = (props) => {
     const getCartData = async (url) => {
         try {
             await axios.get(url).then((response) => {
-            
+
 
                 response.data.length!==0 && response.data.map((item)=>{
-                    
+
                     if(parseInt(item.id)===parseInt(id)){
                         setisAlreadyAddedInCart(true);
                     }
@@ -286,7 +289,7 @@ const DetailsPage = (props) => {
 
             }
 
-                                    
+
 
             <section className="detailsPage mb-5">
                 {
@@ -296,16 +299,19 @@ const DetailsPage = (props) => {
                             <ul className="breadcrumb breadcrumb2 mb-0">
                                 <li><Link>Home</Link>  </li>
                                 <li><Link to={`/cat/${prodCat.parentCat.split(' ').join('-').toLowerCase()}`}
-                                    onClick={() => sessionStorage.setItem('cat', prodCat.parentCat.split(' ').join('-').toLowerCase())} className='text-capitalize'>{prodCat.parentCat}</Link> </li>
+                                          onClick={() => sessionStorage.setItem('cat', prodCat.parentCat.split(' ').join('-').toLowerCase())} className='text-capitalize'>{prodCat.parentCat}</Link> </li>
 
                                 <li><Link to={`/cat/${prodCat.parentCat.toLowerCase()}/${prodCat.subCatName.replace(/\s/g, '-').toLowerCase()}`}
-                                    onClick={() => sessionStorage.setItem('cat', prodCat.subCatName.toLowerCase())} className='text-capitalize'>{prodCat.subCatName}</Link> </li>
+                                          onClick={() => sessionStorage.setItem('cat', prodCat.subCatName.toLowerCase())} className='text-capitalize'>{prodCat.subCatName}</Link> </li>
                                 <li>{currentProduct.productName}</li>
                             </ul>
                         </div>
 
                     </div>
                 }
+
+
+
 
                 <div className='container detailsContainer pt-3 pb-3'>
                     <div className='row'>
@@ -340,7 +346,7 @@ const DetailsPage = (props) => {
                                         return (
                                             <div className='item'>
                                                 <img src={`${imgUrl}?im=Resize=(${smlImageSize[0]},${smlImageSize[1]})`} className='w-100'
-                                                    onClick={() => goto(index)} />
+                                                     onClick={() => goto(index)} />
                                             </div>
                                         )
                                     })
@@ -456,26 +462,26 @@ const DetailsPage = (props) => {
                             <ul className='list list-inline'>
                                 <li className='list-inline-item'>
                                     <Button className={`${activeTabs === 0 && 'active'}`}
-                                        onClick={() => {
-                                            setActiveTabs(0)
+                                            onClick={() => {
+                                                setActiveTabs(0)
 
-                                        }}
+                                            }}
                                     >Description</Button>
                                 </li>
                                 <li className='list-inline-item'>
                                     <Button className={`${activeTabs === 1 && 'active'}`}
-                                        onClick={() => {
-                                            setActiveTabs(1)
+                                            onClick={() => {
+                                                setActiveTabs(1)
 
-                                        }}
+                                            }}
                                     >Additional info</Button>
                                 </li>
                                 <li className='list-inline-item'>
                                     <Button className={`${activeTabs === 2 && 'active'}`}
-                                        onClick={() => {
-                                            setActiveTabs(2)
-                                            showReviews()
-                                        }}
+                                            onClick={() => {
+                                                setActiveTabs(2)
+                                                showReviews()
+                                            }}
                                     >Reviews (3)</Button>
                                 </li>
 
@@ -500,90 +506,90 @@ const DetailsPage = (props) => {
                                     <div className='table-responsive'>
                                         <table className='table table-bordered'>
                                             <tbody>
-                                                <tr className="stand-up">
-                                                    <th>Stand Up</th>
-                                                    <td>
-                                                        <p>35″L x 24″W x 37-45″H(front to back wheel)</p>
-                                                    </td>
-                                                </tr>
-                                                <tr className="folded-wo-wheels">
-                                                    <th>Folded (w/o wheels)</th>
-                                                    <td>
-                                                        <p>32.5″L x 18.5″W x 16.5″H</p>
-                                                    </td>
-                                                </tr>
-                                                <tr className="folded-w-wheels">
-                                                    <th>Folded (w/ wheels)</th>
-                                                    <td>
-                                                        <p>32.5″L x 24″W x 18.5″H</p>
-                                                    </td>
-                                                </tr>
-                                                <tr className="door-pass-through">
-                                                    <th>Door Pass Through</th>
-                                                    <td>
-                                                        <p>24</p>
-                                                    </td>
-                                                </tr>
-                                                <tr className="frame">
-                                                    <th>Frame</th>
-                                                    <td>
-                                                        <p>Aluminum</p>
-                                                    </td>
-                                                </tr>
-                                                <tr className="weight-wo-wheels">
-                                                    <th>Weight (w/o wheels)</th>
-                                                    <td>
-                                                        <p>20 LBS</p>
-                                                    </td>
-                                                </tr>
-                                                <tr className="weight-capacity">
-                                                    <th>Weight Capacity</th>
-                                                    <td>
-                                                        <p>60 LBS</p>
-                                                    </td>
-                                                </tr>
-                                                <tr className="width">
-                                                    <th>Width</th>
-                                                    <td>
-                                                        <p>24″</p>
-                                                    </td>
-                                                </tr>
-                                                <tr className="handle-height-ground-to-handle">
-                                                    <th>Handle height (ground to handle)</th>
-                                                    <td>
-                                                        <p>37-45″</p>
-                                                    </td>
-                                                </tr>
-                                                <tr className="wheels">
-                                                    <th>Wheels</th>
-                                                    <td>
-                                                        <p>12″ air / wide track slick tread</p>
-                                                    </td>
-                                                </tr>
-                                                <tr className="seat-back-height">
-                                                    <th>Seat back height</th>
-                                                    <td>
-                                                        <p>21.5″</p>
-                                                    </td>
-                                                </tr>
-                                                <tr className="head-room-inside-canopy">
-                                                    <th>Head room (inside canopy)</th>
-                                                    <td>
-                                                        <p>25″</p>
-                                                    </td>
-                                                </tr>
-                                                <tr className="pa_color">
-                                                    <th>Color</th>
-                                                    <td>
-                                                        <p>Black, Blue, Red, White</p>
-                                                    </td>
-                                                </tr>
-                                                <tr className="pa_size">
-                                                    <th>Size</th>
-                                                    <td>
-                                                        <p>M, S</p>
-                                                    </td>
-                                                </tr>
+                                            <tr class="stand-up">
+                                                <th>Stand Up</th>
+                                                <td>
+                                                    <p>35″L x 24″W x 37-45″H(front to back wheel)</p>
+                                                </td>
+                                            </tr>
+                                            <tr class="folded-wo-wheels">
+                                                <th>Folded (w/o wheels)</th>
+                                                <td>
+                                                    <p>32.5″L x 18.5″W x 16.5″H</p>
+                                                </td>
+                                            </tr>
+                                            <tr class="folded-w-wheels">
+                                                <th>Folded (w/ wheels)</th>
+                                                <td>
+                                                    <p>32.5″L x 24″W x 18.5″H</p>
+                                                </td>
+                                            </tr>
+                                            <tr class="door-pass-through">
+                                                <th>Door Pass Through</th>
+                                                <td>
+                                                    <p>24</p>
+                                                </td>
+                                            </tr>
+                                            <tr class="frame">
+                                                <th>Frame</th>
+                                                <td>
+                                                    <p>Aluminum</p>
+                                                </td>
+                                            </tr>
+                                            <tr class="weight-wo-wheels">
+                                                <th>Weight (w/o wheels)</th>
+                                                <td>
+                                                    <p>20 LBS</p>
+                                                </td>
+                                            </tr>
+                                            <tr class="weight-capacity">
+                                                <th>Weight Capacity</th>
+                                                <td>
+                                                    <p>60 LBS</p>
+                                                </td>
+                                            </tr>
+                                            <tr class="width">
+                                                <th>Width</th>
+                                                <td>
+                                                    <p>24″</p>
+                                                </td>
+                                            </tr>
+                                            <tr class="handle-height-ground-to-handle">
+                                                <th>Handle height (ground to handle)</th>
+                                                <td>
+                                                    <p>37-45″</p>
+                                                </td>
+                                            </tr>
+                                            <tr class="wheels">
+                                                <th>Wheels</th>
+                                                <td>
+                                                    <p>12″ air / wide track slick tread</p>
+                                                </td>
+                                            </tr>
+                                            <tr class="seat-back-height">
+                                                <th>Seat back height</th>
+                                                <td>
+                                                    <p>21.5″</p>
+                                                </td>
+                                            </tr>
+                                            <tr class="head-room-inside-canopy">
+                                                <th>Head room (inside canopy)</th>
+                                                <td>
+                                                    <p>25″</p>
+                                                </td>
+                                            </tr>
+                                            <tr class="pa_color">
+                                                <th>Color</th>
+                                                <td>
+                                                    <p>Black, Blue, Red, White</p>
+                                                </td>
+                                            </tr>
+                                            <tr class="pa_size">
+                                                <th>Size</th>
+                                                <td>
+                                                    <p>M, S</p>
+                                                </td>
+                                            </tr>
                                             </tbody>
                                         </table>
                                     </div>
@@ -605,7 +611,7 @@ const DetailsPage = (props) => {
 
 
                                             {
-                                                reviewsArr.length !== 0 && true &&
+                                                reviewsArr.length !== 0 && reviewsArr !== undefined &&
                                                 reviewsArr.map((item, index) => {
 
 
@@ -626,7 +632,7 @@ const DetailsPage = (props) => {
                                                                     <h5 className='text-light'>{item.date}</h5>
                                                                     <div className='ml-auto'>
                                                                         <Rating name="half-rating-read"
-                                                                            value={parseFloat(item.rating)} precision={0.5} readOnly />
+                                                                                value={parseFloat(item.rating)} precision={0.5} readOnly />
                                                                     </div>
                                                                 </div>
 
@@ -657,7 +663,7 @@ const DetailsPage = (props) => {
                                                 <h4>Add a review</h4> <br />
                                                 <div className='form-group'>
                                                     <textarea className='form-control' placeholder='Write a Review'
-                                                        name="review" value={reviewFields.review} onChange={(e) => changeInput(e.target.name, e.target.value)}></textarea>
+                                                              name="review" value={reviewFields.review} onChange={(e) => changeInput(e.target.name, e.target.value)}></textarea>
                                                 </div>
 
                                                 <div className='row'>
@@ -670,7 +676,7 @@ const DetailsPage = (props) => {
                                                     <div className='col-md-6'>
                                                         <div className='form-group'>
                                                             <Rating name="rating" value={rating} precision={0.5}
-                                                                onChange={(e) => changeInput(e.target.name, e.target.value)}
+                                                                    onChange={(e) => changeInput(e.target.name, e.target.value)}
                                                             />
                                                         </div>
                                                     </div>
@@ -705,7 +711,7 @@ const DetailsPage = (props) => {
 
                                             <div className="progressBarBox d-flex align-items-center">
                                                 <span className='mr-3'>5 star</span>
-                                                <div className="progress" style={{ width: '85%', height: '20px' }}>
+                                                <div class="progress" style={{ width: '85%', height: '20px' }}>
                                                     <div class="progress-bar bg-success" style={{ width: '75%', height: '20px' }}>75%</div>
                                                 </div>
                                             </div>
@@ -745,11 +751,20 @@ const DetailsPage = (props) => {
                                                 </div>
                                             </div>
 
+
+
+
                                         </div>
+
+
+
 
                                     </div>
                                 </div>
                             }
+
+
+
 
                         </div>
                     </div>
@@ -789,3 +804,4 @@ const DetailsPage = (props) => {
 
 
 export default DetailsPage;
+

@@ -3,6 +3,7 @@ import './style.css';
 import Rating from '@mui/material/Rating';
 import { Button } from '@mui/material';
 import { Link } from 'react-router-dom';
+
 import ShoppingCartOutlinedIcon from '@mui/icons-material/ShoppingCartOutlined';
 import FavoriteBorderOutlinedIcon from '@mui/icons-material/FavoriteBorderOutlined';
 import CompareArrowsOutlinedIcon from '@mui/icons-material/CompareArrowsOutlined';
