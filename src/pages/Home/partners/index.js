@@ -1,34 +1,58 @@
-import React from "react";
-import Slider from "react-slick";
-import partner1 from "../../../assets/images/partner1.png";
-import partner2 from "../../../assets/images/partner2.png";
-import partner3 from "../../../assets/images/partner3.png";
+import React, { useState, useEffect } from 'react';
+import partner1 from '../../../assets/images/partner-1.svg';
+import partner2 from '../../../assets/images/partner-2.svg';
+import partner3 from '../../../assets/images/partner-3.svg';
+import partner4 from '../../../assets/images/partner-4.svg';
+import partner5 from '../../../assets/images/partner-5.svg';
 import './style.css';
 
-export default function Partners() {
-    const settings = {
-        dots: true,
-        infinite: true,
-        speed: 500,
-        slidesToShow: 1,
-        slidesToScroll: 1,
-        autoplay: true,
-        autoplaySpeed: 3000,
+const PartnerSlider = () => {
+    const [currentSlide, setCurrentSlide] = useState(0);
+    const partners = [partner1, partner2, partner3, partner4, partner5];
+    const slideInterval = 5000; // Change the interval duration as desired (in milliseconds)
+
+    const goToPrevSlide = () => {
+        setCurrentSlide(currentSlide === 0 ? partners.length - 1 : currentSlide - 1);
     };
 
+    const goToNextSlide = () => {
+        setCurrentSlide(currentSlide === partners.length - 1 ? 0 : currentSlide + 1);
+    };
+
+    const goToSlide = (index) => {
+        setCurrentSlide(index);
+    };
+
+    useEffect(() => {
+        const intervalId = setInterval(() => {
+            goToNextSlide();
+        }, slideInterval);
+
+        return () => clearInterval(intervalId);
+    }, [currentSlide, slideInterval]);
+
     return (
-        <div className="stats-section">
-            <Slider {...settings}>
-                <div>
-                    <img src={partner1} alt="Partner 1" />
-                </div>
-                <div>
-                    <img src={partner2} alt="Partner 2" />
-                </div>
-                <div>
-                    <img src={partner3} alt="Partner 3" />
-                </div>
-            </Slider>
+        <div className="partner-slider">
+            <div className="slider-container">
+                <button className="prev-arrow" onClick={goToPrevSlide}>
+                    &#8249;
+                </button>
+                <img src={partners[currentSlide]} alt="Partner" className="slider-image" />
+                <button className="next-arrow" onClick={goToNextSlide}>
+                    &#8250;
+                </button>
+            </div>
+            <div className="slider-dots">
+                {partners.map((_, index) => (
+                    <span
+                        key={index}
+                        className={`slider-dot ${index === currentSlide ? 'active' : ''}`}
+                        onClick={() => goToSlide(index)}
+                    />
+                ))}
+            </div>
         </div>
     );
-}
+};
+
+export default PartnerSlider;

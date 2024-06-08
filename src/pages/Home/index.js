@@ -154,9 +154,10 @@ const Home = (props) => {
             <div className="stats">
                 <Stats/>
             </div>
-            <div className="stats">
+            <div>
                 <Partners/>
             </div>
+            <br/>
         </div>
     );
 };
