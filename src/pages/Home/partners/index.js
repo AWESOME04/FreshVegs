@@ -34,13 +34,7 @@ const PartnerSlider = () => {
     return (
         <div className="partner-slider">
             <div className="slider-container">
-                <button className="prev-arrow" onClick={goToPrevSlide}>
-                    &#8249;
-                </button>
                 <img src={partners[currentSlide]} alt="Partner" className="slider-image" />
-                <button className="next-arrow" onClick={goToNextSlide}>
-                    &#8250;
-                </button>
             </div>
             <div className="slider-dots">
                 {partners.map((_, index) => (
